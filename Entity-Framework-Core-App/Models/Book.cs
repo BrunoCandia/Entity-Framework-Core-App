@@ -26,5 +26,7 @@ namespace Entity_Framework_Core_App.Models
         {
             get { return $"{Author}'s {Title}"; }
         }
+
+        public DateTime CreatedAt { get; set; }
     }
 }

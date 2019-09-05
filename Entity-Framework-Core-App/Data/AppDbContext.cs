@@ -27,6 +27,9 @@ namespace Entity_Framework_Core_App.Data
             //Exclude a Property
             modelBuilder.Entity<Book>().Ignore(b => b.FullTitle);
 
+            //Database Generated Value
+            modelBuilder.Entity<Book>().Property(b => b.CreatedAt).HasDefaultValueSql("getdate()");
+
             //Only 1 way to define a Composite Key
             modelBuilder.Entity<Author>().HasKey(a => new {a.FirstName, a.LastName});
         }
