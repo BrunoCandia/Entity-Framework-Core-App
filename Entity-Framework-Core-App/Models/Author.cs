@@ -22,5 +22,7 @@ namespace Entity_Framework_Core_App.Models
         }
         public DateTime DoB { get; set; }
         public string Nationality { get; set; }
+
+        public AuthorBiography Biography { get; set; }
     }
 }

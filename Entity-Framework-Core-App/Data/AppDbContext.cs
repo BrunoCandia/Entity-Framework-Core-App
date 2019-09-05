@@ -35,6 +35,9 @@ namespace Entity_Framework_Core_App.Data
 
             //Only 1 way to define a Composite Key
             modelBuilder.Entity<Author>().HasKey(a => new {a.FirstName, a.LastName});
+
+            //Author - Author Biography one-to-one relationship
+            modelBuilder.Entity<Author>().HasOne(a => a.Biography).WithOne(ab => ab.Author).HasForeignKey<AuthorBiography>();
         }
 
         public DbSet<Contact> Contacts { get; set; }
@@ -43,5 +46,6 @@ namespace Entity_Framework_Core_App.Data
         public DbSet<Author> Authors { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Membership> Memberships { get; set; }
+        public DbSet<AuthorBiography> AuthorBiographies { get; set; }
     }
 }
