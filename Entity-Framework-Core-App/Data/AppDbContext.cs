@@ -41,5 +41,7 @@ namespace Entity_Framework_Core_App.Data
         public DbSet<ToDo> ToDoS { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Membership> Memberships { get; set; }
     }
 }
