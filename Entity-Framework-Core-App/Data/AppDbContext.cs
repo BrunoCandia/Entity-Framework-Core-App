@@ -30,6 +30,9 @@ namespace Entity_Framework_Core_App.Data
             //Database Generated Value
             modelBuilder.Entity<Book>().Property(b => b.CreatedAt).HasDefaultValueSql("getdate()");
 
+            //Shadow Property - Is defined in the DB but not in the model
+            modelBuilder.Entity<Book>().Property<DateTime>("UpdatedAt").HasDefaultValueSql("getdate()");
+
             //Only 1 way to define a Composite Key
             modelBuilder.Entity<Author>().HasKey(a => new {a.FirstName, a.LastName});
         }
