@@ -34,7 +34,7 @@ namespace Entity_Framework_Core_App.Data
             modelBuilder.Entity<Book>().Property<DateTime>("UpdatedAt").HasDefaultValueSql("getdate()");
 
             //Only 1 way to define a Composite Key
-            modelBuilder.Entity<Author>().HasKey(a => new {a.FirstName, a.LastName});
+            //modelBuilder.Entity<Author>().HasKey(a => new {a.FirstName, a.LastName});
 
             //Author - Author Biography one-to-one relationship
             modelBuilder.Entity<Author>().HasOne(a => a.Biography).WithOne(ab => ab.Author).HasForeignKey<AuthorBiography>();
