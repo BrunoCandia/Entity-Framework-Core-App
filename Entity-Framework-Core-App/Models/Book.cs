@@ -18,5 +18,13 @@ namespace Entity_Framework_Core_App.Models
         public string Title { get; set; }
         public string Author { get; set; }
         public string Isbn { get; set; }
+
+        //Exclude a Property with FluentApi
+        //By default EF Core will not include the property if a setter is not implemented
+        //but if a setter is implemented the EF Core will include the property
+        public string FullTitle
+        {
+            get { return $"{Author}'s {Title}"; }
+        }
     }
 }

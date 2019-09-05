@@ -17,7 +17,17 @@ namespace Entity_Framework_Core_App.Data
         {
             modelBuilder.Entity<Book>().Property(b => b.Isbn).HasMaxLength(10);
 
-            //Composite Key
+            //2 ways to define a Unique Field
+            //Through Alternate Key
+            //modelBuilder.Entity<Book>().HasAlternateKey(b => b.Isbn).HasName("UniqueIsbn");
+
+            //Through Unique Index
+            modelBuilder.Entity<Book>().HasIndex(b => b.Isbn).HasName("IsbnIndex").IsUnique();
+
+            //Exclude a Property
+            modelBuilder.Entity<Book>().Ignore(b => b.FullTitle);
+
+            //Only 1 way to define a Composite Key
             modelBuilder.Entity<Author>().HasKey(a => new {a.FirstName, a.LastName});
         }
 
