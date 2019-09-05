@@ -16,16 +16,16 @@ namespace Entity_Framework_Core_App
     {
         public static void Main(string[] args)
         {
-            //CreateWebHostBuilder(args).Build().Run();
+            CreateWebHostBuilder(args).Build().Run();
 
-            var host = CreateWebHostBuilder(args).Build();
-            using (var newScope = host.Services.CreateScope())
-            {
-                var context = newScope.ServiceProvider.GetRequiredService<AppDbContext>();
-                DbInit.InitializeWithFakeData(context);
-            }
+            //var host = CreateWebHostBuilder(args).Build();
+            //using (var newScope = host.Services.CreateScope())
+            //{
+            //    var context = newScope.ServiceProvider.GetRequiredService<AppDbContext>();
+            //    DbInit.InitializeWithFakeData(context);
+            //}
 
-            host.Run();
+            //host.Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
