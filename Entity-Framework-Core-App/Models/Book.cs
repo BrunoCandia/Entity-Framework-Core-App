@@ -8,7 +8,11 @@ namespace Entity_Framework_Core_App.Models
 {
     public class Book
     {
-        public int Id { get; set; }
+        public int Id { get; set; }                 //Primary key convention1 (Id)
+        //public int BookId { get; set; }           //Primary key convention2 (ClassName + Id)
+
+        //[Key]
+        //public int BookIdentifier { get; set; }   //Primary key convention3 (DataAnnotation)
 
         [MaxLength(32)]
         public string Title { get; set; }

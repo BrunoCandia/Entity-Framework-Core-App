@@ -16,10 +16,14 @@ namespace Entity_Framework_Core_App.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Book>().Property(b => b.Isbn).HasMaxLength(10);
+
+            //Composite Key
+            modelBuilder.Entity<Author>().HasKey(a => new {a.FirstName, a.LastName});
         }
 
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<ToDo> ToDoS { get; set; }
         public DbSet<Book> Books { get; set; }
+        public DbSet<Author> Authors { get; set; }
     }
 }
