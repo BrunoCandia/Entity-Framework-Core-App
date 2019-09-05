@@ -27,6 +27,8 @@ namespace Entity_Framework_Core_App.Models
         [MaxLength(64)]
         public string PhoneNumber { get; set; }
 
+        //Navigation properties
+
         public Membership Membership { get; set; }
     }
 }

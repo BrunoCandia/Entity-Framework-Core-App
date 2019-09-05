@@ -27,6 +27,10 @@ namespace Entity_Framework_Core_App.Models
         public DateTime DoB { get; set; }
         public string Nationality { get; set; }
 
+        //Navigation properties
+
         public AuthorBiography Biography { get; set; }
+
+        public List<Book> Books { get; set; }
     }
 }

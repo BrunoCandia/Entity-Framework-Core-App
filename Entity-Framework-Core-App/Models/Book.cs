@@ -17,7 +17,7 @@ namespace Entity_Framework_Core_App.Models
 
         [MaxLength(32)]
         public string Title { get; set; }
-        public string Author { get; set; }
+        //public string Author { get; set; }
         public string Isbn { get; set; }
 
         //Exclude a Property with FluentApi
@@ -25,11 +25,17 @@ namespace Entity_Framework_Core_App.Models
         //but if a setter is implemented the EF Core will include the property
         public string FullTitle
         {
-            get { return $"{Author}'s {Title}"; }
+            get { return $"{Author.FullName}'s {Title}"; }
         }
 
         //Database Generated Value
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime CreatedAt { get; set; }
+
+        //Navigation properties
+
+        public int AuthorId { get; set; }
+
+        public Author Author { get; set; }
     }
 }

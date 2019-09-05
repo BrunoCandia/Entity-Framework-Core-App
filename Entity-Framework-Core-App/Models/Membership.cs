@@ -24,6 +24,8 @@ namespace Entity_Framework_Core_App.Models
         [Required]
         public Genre Genre { get; set; }
 
+        //Navigation properties
+
         public int ClientId { get; set; }
         public Client Client { get; set; }
     }

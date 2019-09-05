@@ -13,6 +13,8 @@ namespace Entity_Framework_Core_App.Models
         //public string AuthorFirstName { get; set; }
         //public string AuthorLastName { get; set; }
 
+        //Navigation properties
+
         public int AuthorId { get; set; }
         public Author Author { get; set; }
     }
