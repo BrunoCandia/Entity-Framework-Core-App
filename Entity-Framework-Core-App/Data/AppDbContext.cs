@@ -38,6 +38,14 @@ namespace Entity_Framework_Core_App.Data
 
             //Author - Author Biography one-to-one relationship
             modelBuilder.Entity<Author>().HasOne(a => a.Biography).WithOne(ab => ab.Author).HasForeignKey<AuthorBiography>();
+
+            //Book - PersonalLibrary many-to-many relationship
+            //1 - Define a Composite Key
+            //2 - Define a one-to-many relationship among PersonalLibraryBook and Book
+            //3 - Define a one-to-many relationship among PersonalLibraryBook and PersonalLibrary
+            modelBuilder.Entity<PersonalLibraryBook>().HasKey(plb => new {plb.BookId, plb.PersonalLibraryId});
+            modelBuilder.Entity<PersonalLibraryBook>().HasOne(plb => plb.Book).WithMany(b => b.PersonalLibraryBooks).HasForeignKey(plb => plb.BookId);
+            modelBuilder.Entity<PersonalLibraryBook>().HasOne(plb => plb.PersonalLibrary).WithMany(b => b.PersonalLibraryBooks).HasForeignKey(plb => plb.PersonalLibraryId);
         }
 
         public DbSet<Contact> Contacts { get; set; }
@@ -47,5 +55,7 @@ namespace Entity_Framework_Core_App.Data
         public DbSet<Client> Clients { get; set; }
         public DbSet<Membership> Memberships { get; set; }
         public DbSet<AuthorBiography> AuthorBiographies { get; set; }
+        public DbSet<PersonalLibrary> PersonalLibraries { get; set; }
+        public DbSet<PersonalLibraryBook> PersonalLibraryBooks { get; set; }
     }
 }

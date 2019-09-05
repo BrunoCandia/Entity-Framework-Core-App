@@ -35,7 +35,8 @@ namespace Entity_Framework_Core_App.Models
         //Navigation properties
 
         public int AuthorId { get; set; }
-
         public Author Author { get; set; }
+
+        public List<PersonalLibraryBook> PersonalLibraryBooks { get; set; }
     }
 }
