@@ -54,6 +54,13 @@ namespace Entity_Framework_Core_App
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = scope.ServiceProvider.GetService<AppDbContext>();
+                context.Database.Migrate();
+                context.EnsureDatabaseSeeded();
+            }
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
