@@ -32,6 +32,9 @@ namespace Entity_Framework_Core_App.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime CreatedAt { get; set; }
 
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
+
         //Navigation properties
 
         public int AuthorId { get; set; }
